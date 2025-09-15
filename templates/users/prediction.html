@@ -1,0 +1,46 @@
+{% extends 'users/userbase.html'%}
+{%load static%}
+{%block contents%}
+<!--<style>-->
+<!--    .bg-light{-->
+<!--    margin-top: -500px;-->
+<!--    background: #65cd00;-->
+<!--    padding:10px;-->
+<!--    }-->
+<style>
+    #abc {
+        background-color: black;
+    }
+</style>
+<!--</style>-->
+
+ <section class="we-do" id="abc">
+  
+                <h2 align='center'>Give Your Input Here</h2>
+                <p>
+                    <center>
+                <form  action="{%url 'imageprediction'%}" enctype="multipart/form-data" method="POST" align="center">
+{%csrf_token%}
+ <table>
+
+<strong>Select an Image</strong>  <input type="file" name="file"  accept="video\*" required placeholder="Select an Image to Upload"><br/>
+</div>
+</div>
+
+
+</div>
+
+<button class="btn  btn-primary text-white py-3 px-5" type="submit"> Upload </button>
+<h4>Disease Of Your Given Image Is :<span style="color:rgb(63, 231, 80)">{{y_pred}}</span></h4>
+
+ <img src="{{path}}" width="450" height="380">
+
+<h4>Steps To Be Take To Prevent The Diease Are :<span style="color:rgb(73, 215, 30)">{{prevention}}</span></h4>
+<h4>The Recommended pesticide is:<span style="color:rgb(57, 202, 41)">{{pesticide}}</span></h4>
+
+
+
+</table>
+
+
+{%endblock%}
